@@ -13,7 +13,9 @@ Source0:	http://www.cython.org/release/%{module}-%{version}.tar.gz
 URL:		http://www.cython.org/
 BuildRequires:	python3
 BuildRequires:	python3-2to3
+BuildRequires:	python3-devel
 BuildRequires:	python3-distribute
+BuildRequires:	python3-modules
 BuildRequires:	rpm-pythonprov
 %pyrequires_eq	python3-libs
 %pyrequires_eq	python3-devel
