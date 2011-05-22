@@ -4,12 +4,12 @@
 Summary:	Language for writing Python Extension Modules
 Summary(pl.UTF-8):	Język służący do pisania modułów rozszerzających Pythona
 Name:		python3-%{module}
-Version:	0.12.1
+Version:	0.14.1
 Release:	1
 License:	PSF
 Group:		Libraries/Python
 Source0:	http://www.cython.org/release/%{module}-%{version}.tar.gz
-# Source0-md5:	cf9f98e982258f8516620277975016f3
+# Source0-md5:	1ae1947c1218110f0e41fc95b2bc4530
 URL:		http://www.cython.org/
 BuildRequires:	python3
 BuildRequires:	python3-2to3
@@ -54,14 +54,12 @@ install -d $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}
 
 %{__python3} setup.py install \
 	--root=$RPM_BUILD_ROOT \
-	--install-purelib=%{py3_sitescriptdir} \
 	-O2
-
-find $RPM_BUILD_ROOT%{py3_sitescriptdir} -name "*.py" -a ! -name 'Lexicon.py' -exec rm -f {} \;
 
 cp -a Demos/* $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}
 
 mv $RPM_BUILD_ROOT%{_bindir}/cython{,3}
+mv $RPM_BUILD_ROOT%{_bindir}/cygdb{,3}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -70,10 +68,12 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc README.txt ToDo.txt USAGE.txt Doc/*.html Doc/*.c
 %attr(755,root,root) %{_bindir}/cython3
-%{py3_sitescriptdir}/cython.py[co]
-%{py3_sitescriptdir}/Cython
-%{py3_sitescriptdir}/pyximport
-%{py3_sitescriptdir}/Cython-*.egg-info
+%attr(755,root,root) %{_bindir}/cygdb3
+%{py3_sitedir}/cython.py
+%{py3_sitedir}/__pycache__/*
+%{py3_sitedir}/Cython
+%{py3_sitedir}/pyximport
+%{py3_sitedir}/Cython-*.egg-info
 
 %files examples
 %defattr(644,root,root,755)
