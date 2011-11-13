@@ -1,15 +1,15 @@
 
 %define		module	Cython
 
-Summary:	Language for writing Python Extension Modules
-Summary(pl.UTF-8):	Język służący do pisania modułów rozszerzających Pythona
+Summary:	Language for writing Python Extension Modules (Python 3.x version)
+Summary(pl.UTF-8):	Język służący do pisania modułów rozszerzających Pythona (wersja dla Pythona 3.x)
 Name:		python3-%{module}
-Version:	0.14.1
-Release:	2
+Version:	0.15.1
+Release:	1
 License:	PSF
 Group:		Libraries/Python
 Source0:	http://www.cython.org/release/%{module}-%{version}.tar.gz
-# Source0-md5:	1ae1947c1218110f0e41fc95b2bc4530
+# Source0-md5:	171021b3845c9ca8bd6d8185b3cde664
 URL:		http://www.cython.org/
 BuildRequires:	python3
 BuildRequires:	python3-2to3
@@ -28,10 +28,14 @@ Cython lets you write code that mixes Python and C data types any way
 you want, and compiles it into a C extension for Python. Cython is
 based on Pyrex.
 
+This package contains Cython module for Python 3.x.
+
 %description -l pl.UTF-8
 Pyrex pozwala pisać kod zawierający dane Pythona i języka C połączone
 w jakikolwiek sposób i kompiluje to jako rozszerzenie C dla Pythona.
 Cython jest oparty na Pyreksie.
+
+Ten pakiet zawiera moduł Cython dla Pythona 3.x.
 
 %package examples
 Summary:	Examples for Pyrex language
@@ -70,7 +74,7 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/cython3
 %attr(755,root,root) %{_bindir}/cygdb3
 %{py3_sitedir}/cython.py
-%{py3_sitedir}/__pycache__/*
+%{py3_sitedir}/__pycache__/cython.*
 %{py3_sitedir}/Cython
 %{py3_sitedir}/pyximport
 %{py3_sitedir}/Cython-*.egg-info
