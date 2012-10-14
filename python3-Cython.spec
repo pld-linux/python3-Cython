@@ -4,12 +4,12 @@
 Summary:	Language for writing Python Extension Modules (Python 3.x version)
 Summary(pl.UTF-8):	Język służący do pisania modułów rozszerzających Pythona (wersja dla Pythona 3.x)
 Name:		python3-%{module}
-Version:	0.17
+Version:	0.17.1
 Release:	1
-License:	PSF
+License:	Apache v2.0
 Group:		Libraries/Python
 Source0:	http://www.cython.org/release/%{module}-%{version}.tar.gz
-# Source0-md5:	d6b669956b25babf7dd86db0a98539e4
+# Source0-md5:	f0bd2494dbe080a1185b61fa358135f2
 URL:		http://www.cython.org/
 BuildRequires:	python3
 BuildRequires:	python3-2to3
@@ -38,16 +38,16 @@ Cython jest oparty na Pyreksie.
 Ten pakiet zawiera moduł Cython dla Pythona 3.x.
 
 %package examples
-Summary:	Examples for Pyrex language
-Summary(pl.UTF-8):	Przykłady programów w języku Pyrex
+Summary:	Examples for Cython language
+Summary(pl.UTF-8):	Przykłady programów w języku Cython
 Group:		Libraries/Python
 Requires:	%{name} = %{version}-%{release}
 
 %description examples
-This package contains example programs for Pyrex language.
+This package contains example programs for Cython language.
 
 %description examples -l pl.UTF-8
-Pakiet zawierający przykładowe programy napisane w języku Pyrex.
+Pakiet zawierający przykładowe programy napisane w języku Cython.
 
 %prep
 %setup -q -n %{module}-%{version}
@@ -70,7 +70,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc README.txt ToDo.txt USAGE.txt Doc/*.html Doc/*.c
+%doc COPYING.txt README.txt ToDo.txt USAGE.txt Doc/*.html Doc/*.c
 %attr(755,root,root) %{_bindir}/cython3
 %attr(755,root,root) %{_bindir}/cygdb3
 %{py3_sitedir}/cython.py
