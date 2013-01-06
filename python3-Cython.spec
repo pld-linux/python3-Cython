@@ -4,12 +4,12 @@
 Summary:	Language for writing Python Extension Modules (Python 3.x version)
 Summary(pl.UTF-8):	Język służący do pisania modułów rozszerzających Pythona (wersja dla Pythona 3.x)
 Name:		python3-%{module}
-Version:	0.17.3
+Version:	0.17.4
 Release:	1
 License:	Apache v2.0
 Group:		Libraries/Python
 Source0:	http://www.cython.org/release/%{module}-%{version}.tar.gz
-# Source0-md5:	683241fee8f51a08acd42ab1deea0857
+# Source0-md5:	cb11463e3a0c8d063e578db64ff61dde
 URL:		http://www.cython.org/
 BuildRequires:	python3
 BuildRequires:	python3-2to3
