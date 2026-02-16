@@ -7,13 +7,13 @@
 Summary:	Language for writing Python Extension Modules (Python 2.x version)
 Summary(pl.UTF-8):	Język służący do pisania modułów rozszerzających Pythona (wersja dla Pythona 2.x)
 Name:		python3-%{module}
-Version:	3.1.2
+Version:	3.2.4
 Release:	1
 License:	Apache v2.0
 Group:		Libraries/Python
 #Source0Download: https://pypi.org/simple/cython/
 Source0:	https://files.pythonhosted.org/packages/source/c/cython/cython-%{version}.tar.gz
-# Source0-md5:	6fb2dc869f4d00b4a13e130ec1197bfd
+# Source0-md5:	a2bfdf20b8dbc2342d4105faf61d9f17
 URL:		https://cython.org/
 BuildRequires:	python3 >= 1:3.8
 BuildRequires:	python3-devel >= 1:3.8
@@ -21,10 +21,11 @@ BuildRequires:	python3-setuptools
 BuildRequires:	rpm-build >= 4.6
 BuildRequires:	rpm-pythonprov
 BuildRequires:	rpmbuild(macros) >= 1.714
+BuildRequires:	sed >= 4.0
 %if %{with apidocs}
-BuildRequires:	python3-sphinx_issues
-BuildRequires:	python3-sphinx_tabs
-BuildRequires:	sphinx-pdg-3 >= 1.8
+BuildRequires:	python3-sphinx_issues >= 5.0.1
+BuildRequires:	python3-sphinx_tabs >= 3.4.4
+BuildRequires:	sphinx-pdg-3 >= 7.2.6
 %endif
 Requires:	python3-devel >= 1:3.8
 Conflicts:	python-Cython < 3.0.11-3
@@ -104,18 +105,20 @@ install -d $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}
 
 cp -a Demos/* $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}
 
+%{__sed} -i -e '1s,/usr/bin/env python3,%{__python3},' $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}/benchmarks/bm_unpack_sequence.py
+
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
 %doc CHANGES.rst COPYING.txt README.rst ToDo.txt USAGE.txt
-%attr(755,root,root) %{_bindir}/cython
-%attr(755,root,root) %{_bindir}/cython3
-%attr(755,root,root) %{_bindir}/cythonize
-%attr(755,root,root) %{_bindir}/cythonize3
-%attr(755,root,root) %{_bindir}/cygdb
 %attr(755,root,root) %{_bindir}/cygdb3
+%attr(755,root,root) %{_bindir}/cython3
+%attr(755,root,root) %{_bindir}/cythonize3
+%{_bindir}/cygdb
+%{_bindir}/cython
+%{_bindir}/cythonize
 %{py3_sitedir}/cython.py
 %{py3_sitedir}/__pycache__/cython.*
 %{py3_sitedir}/Cython
