@@ -4,16 +4,16 @@
 %bcond_with	tests		# test suite (SLOOOOW)
 
 %define		module	Cython
-Summary:	Language for writing Python Extension Modules (Python 2.x version)
-Summary(pl.UTF-8):	Język służący do pisania modułów rozszerzających Pythona (wersja dla Pythona 2.x)
+Summary:	Language for writing Python Extension Modules
+Summary(pl.UTF-8):	Język służący do pisania modułów rozszerzających Pythona
 Name:		python3-%{module}
-Version:	3.2.4
+Version:	3.3.0
 Release:	1
 License:	Apache v2.0
 Group:		Libraries/Python
 #Source0Download: https://pypi.org/simple/cython/
 Source0:	https://files.pythonhosted.org/packages/source/c/cython/cython-%{version}.tar.gz
-# Source0-md5:	a2bfdf20b8dbc2342d4105faf61d9f17
+# Source0-md5:	df8ac911bb3c6af48fb0158160e5b029
 URL:		https://cython.org/
 BuildRequires:	python3 >= 1:3.8
 BuildRequires:	python3-devel >= 1:3.8
@@ -23,6 +23,7 @@ BuildRequires:	rpm-pythonprov
 BuildRequires:	rpmbuild(macros) >= 1.714
 BuildRequires:	sed >= 4.0
 %if %{with apidocs}
+BuildRequires:	python3-sphinx_clarity_theme
 BuildRequires:	python3-sphinx_issues >= 5.0.1
 BuildRequires:	python3-sphinx_tabs >= 3.4.4
 BuildRequires:	sphinx-pdg-3 >= 7.2.6
