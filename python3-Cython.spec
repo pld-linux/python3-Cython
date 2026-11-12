@@ -7,16 +7,16 @@
 Summary:	Language for writing Python Extension Modules
 Summary(pl.UTF-8):	Język służący do pisania modułów rozszerzających Pythona
 Name:		python3-%{module}
-Version:	3.3.0
+Version:	3.3.1
 Release:	1
 License:	Apache v2.0
 Group:		Libraries/Python
 #Source0Download: https://pypi.org/simple/cython/
 Source0:	https://files.pythonhosted.org/packages/source/c/cython/cython-%{version}.tar.gz
-# Source0-md5:	df8ac911bb3c6af48fb0158160e5b029
+# Source0-md5:	9e5b3106f42ced6d0d8b22e66e796bfe
 URL:		https://cython.org/
-BuildRequires:	python3 >= 1:3.8
-BuildRequires:	python3-devel >= 1:3.8
+BuildRequires:	python3 >= 1:3.9
+BuildRequires:	python3-devel >= 1:3.9
 BuildRequires:	python3-setuptools
 BuildRequires:	rpm-build >= 4.6
 BuildRequires:	rpm-pythonprov
@@ -28,7 +28,7 @@ BuildRequires:	python3-sphinx_issues >= 5.0.1
 BuildRequires:	python3-sphinx_tabs >= 3.4.4
 BuildRequires:	sphinx-pdg-3 >= 7.2.6
 %endif
-Requires:	python3-devel >= 1:3.8
+Requires:	python3-devel >= 1:3.9
 Conflicts:	python-Cython < 3.0.11-3
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
