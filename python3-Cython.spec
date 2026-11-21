@@ -18,6 +18,12 @@ URL:		https://cython.org/
 BuildRequires:	python3 >= 1:3.9
 BuildRequires:	python3-devel >= 1:3.9
 BuildRequires:	python3-setuptools
+%if %{with tests}
+BuildRequires:	python3-interpreters-pep-734
+BuildRequires:	python3-ipython
+BuildRequires:	python3-line_profiler
+BuildRequires:	python3-pytest
+%endif
 BuildRequires:	rpm-build >= 4.6
 BuildRequires:	rpm-pythonprov
 BuildRequires:	rpmbuild(macros) >= 1.714
